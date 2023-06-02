@@ -1,6 +1,9 @@
 credentials/
 .DS_Store
-Datalake/
+Datalake/*.xlsx
+Datalake/*.csv
+Datalake/*.zip
+Datalake/*.pdf
 Dataviz/
 
 # Byte-compiled / optimized / DLL files
