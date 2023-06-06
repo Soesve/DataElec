@@ -1,0 +1,3 @@
+[Paths]
+chemin_entree = /Users/jeremy/Documents/1. Projets/Project DataElec/Datalake/
+chemin_sortie = /Users/jeremy/Documents/1. Projets/Project DataElec/Warehouse_CSV/
