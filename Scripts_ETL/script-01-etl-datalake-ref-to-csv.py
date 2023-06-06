@@ -89,23 +89,26 @@ print("Traitement vers calendrier_vacances_scolaires : OK")
 with zipfile.ZipFile(chemin_entree + 'RP2019_LOGEMT_csv.zip', 'r') as zip_ref:
     zip_ref.extractall(chemin_entree + 'tmp')
 
-# Chargement de la source dans un dataframe 
-df_in_donnees_logements = pd.read_csv(chemin_entree + 'tmp/RP2019_LOGEMT_csv', usecols=['COMMUNE','SURF','TYPL'], sep=';')
-
-df_out_type_logement = df_in_donnees_logements
+# Chargement de la source dans un dataframe
+df_in_donnees_logements = pd.read_csv(chemin_entree + 'tmp/FD_LOGEMT_2019.csv', usecols=['COMMUNE','SURF','TYPL'], sep=';', dtype={'COMMUNE': str})
 
 # Aggrégation par surface de logement
-df_out_surf_logement = df_in_donnees_logements.pivot_table(index='COMMUNE', columns='SURF', values='SURF', aggfunc='count', fill_value=0)
-df_out_surf_logement['SUM'] = df_out_surf_logement.sum(axis=1)
-
+df_out_surf_logement = pd.crosstab(index=df_in_donnees_logements['COMMUNE'], columns=df_in_donnees_logements['SURF'], rownames=['COMMUNE'])
+df_out_surf_logement = df_out_surf_logement.reset_index()
 
 # Aggrégation par type de logement
-df_out_type_logement = df_in_donnees_logements.pivot_table(index='COMMUNE', columns='TYPL', values='TYPL', aggfunc='count', fill_value=0)
-df_out_type_logement['SUM'] = df_out_type_logement.sum(axis=1)
+df_out_type_logement = pd.crosstab(index=df_in_donnees_logements['COMMUNE'], columns=df_in_donnees_logements['TYPL'], rownames=['COMMUNE'])
+df_out_type_logement = df_out_type_logement.reset_index()
+df_out_type_logement["type_autres"] = df_out_type_logement[[3, 4, 5, 6]].sum(axis=1)
+df_out_type_logement = df_out_type_logement.drop([3, 4, 5, 6], axis=1)
+
+# Renommage des colonnes
+df_out_surf_logement.columns = ['Code_commune','surf_moins_30','surf_30_40','surf_40_60','surf_60_80','surf_80_100','surf_100_120','surf_plus_120','surf_hors_res_principale']
+df_out_type_logement.columns = ['Code_commune','type_maison','type_appartement','type_autres']
 
 # Enregistrement des fichiers dans Warehouse_CSV
-df_out_surf_logement.to_csv(chemin_sortie + 'surf_logements.csv', index=False)
-df_out_type_logement.to_csv(chemin_sortie + 'type_logements.csv', index=False)
+df_out_surf_logement.to_csv(chemin_sortie + 'surf_logement_commune.csv', index=False)
+df_out_type_logement.to_csv(chemin_sortie + 'type_logement_commune.csv', index=False)
 
 # Suppression du dossier temporaire
 dossier_a_supprimer = chemin_entree + "tmp"
