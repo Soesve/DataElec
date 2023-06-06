@@ -112,6 +112,7 @@ df_out_type_logement.to_csv(chemin_sortie + 'type_logement_commune.csv', index=F
 
 # Suppression du dossier temporaire
 dossier_a_supprimer = chemin_entree + "tmp"
+os.system(f"sudo chmod -R 777 {dossier_a_supprimer}")
 os.system(f"rm -rf {dossier_a_supprimer}")
 
 print("Traitement vers surf_logement_commune.csv et type_logement_commune.csv : OK")

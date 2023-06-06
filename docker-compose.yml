@@ -1,23 +1,26 @@
 version: '3.7'
 
 services:
-  Scripts_ETL:
+  scripts_etl:
     build:
       context: ./Scripts_ETL
       dockerfile: Dockerfile
-    containers_name: Scripts_ETL
-    restart: unless-stopped
+    container_name: scripts_etl
+    restart: no
+    command: bash
+    stdin_open: true
+    tty: true
     volumes:
-      - ./Datalake:/app/datalake
-      - ./Warehouse_CSV:/app/warehouse_csv
+      - ./Datalake:/usr/src/app/datalake
+      - ./Warehouse_CSV:/usr/src/app/warehouse_csv
     depends_on:
-      - postgres
+      - warehouse_db
 
-  Warehouse_DB:
+  warehouse_db:
     build:
       context: ./Warehouse_DB
       dockerfile: Dockerfile
-    containers_name: Warehouse_DB
+    container_name: warehouse_db
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data
