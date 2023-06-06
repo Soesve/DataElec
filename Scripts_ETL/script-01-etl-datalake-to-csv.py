@@ -1,4 +1,6 @@
 import pandas as pd
+import zipfile
+import os
 
 chemin_entree = '/Users/jeremy/Documents/1. Projets/Project DataElec/Datalake/'
 chemin_sortie = '/Users/jeremy/Documents/1. Projets/Project DataElec/Warehouse_CSV/'
@@ -78,5 +80,34 @@ df_out_calendrier_vacances.to_csv(chemin_sortie + 'calendrier_vacances_scolaires
 print("Traitement vers calendrier_vacances_scolaires : OK")
 
 
+
+# Traitement vers surf_logement_commune.csv et type_logement_commune.csv
+# Décompression de la source
+with zipfile.ZipFile(chemin_entree + 'RP2019_LOGEMT_csv.zip', 'r') as zip_ref:
+    zip_ref.extractall(chemin_entree + 'tmp')
+
+# Chargement de la source dans un dataframe 
+df_in_donnees_logements = pd.read_csv(chemin_entree + 'tmp/RP2019_LOGEMT_csv', usecols=['COMMUNE','SURF','TYPL'], sep=';')
+
+df_out_type_logement = df_in_donnees_logements
+
+# Aggrégation par surface de logement
+df_out_surf_logement = df_in_donnees_logements.pivot_table(index='COMMUNE', columns='SURF', values='SURF', aggfunc='count', fill_value=0)
+df_out_surf_logement['SUM'] = df_out_surf_logement.sum(axis=1)
+
+
+# Aggrégation par type de logement
+df_out_type_logement = df_in_donnees_logements.pivot_table(index='COMMUNE', columns='TYPL', values='TYPL', aggfunc='count', fill_value=0)
+df_out_type_logement['SUM'] = df_out_type_logement.sum(axis=1)
+
+# Enregistrement des fichiers dans Warehouse_CSV
+df_out_surf_logement.to_csv(chemin_sortie + 'surf_logements.csv', index=False)
+df_out_type_logement.to_csv(chemin_sortie + 'type_logements.csv', index=False)
+
+# Suppression du dossier temporaire
+dossier_a_supprimer = chemin_entree + "tmp"
+os.system(f"rm -rf {dossier_a_supprimer}")
+
+print("Traitement vers surf_logement_commune.csv et type_logement_commune.csv : OK")
 
 print("\n *** Fin du chargement des fichiers du Datalake vers Warehouse_CSV *** \n")
