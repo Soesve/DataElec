@@ -13,6 +13,7 @@ services:
     volumes:
       - ./Datalake:/usr/src/app/datalake
       - ./Warehouse_CSV:/usr/src/app/warehouse_csv
+      - ./Scripts_ETL/scripts:/usr/src/app/scripts
     depends_on:
       - warehouse_db
 
@@ -23,7 +24,7 @@ services:
     container_name: warehouse_db
     restart: always
     ports:
-      - 5432:5432  # Port mapping for PostgreSQL
+      - 5432:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
