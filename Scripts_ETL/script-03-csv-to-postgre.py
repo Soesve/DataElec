@@ -1,20 +1,28 @@
 import os
 import psycopg2
 import csv
+import configparser
 
-# Chemin du dossier contenant les fichiers CSV
-dossier_csv = '/warehouse_csv'
+# Récupération des variables placées sur config.txt
+config = configparser.ConfigParser()
+config.read('config.txt')
+warehouse_csv = config.get('Paths', 'chemin_sortie')
+hostWarehouse = config.get("SQL", "host")
+portWarehouse = config.get("SQL", "port")
+dbnameWarehouse = config.get("SQL", "dbname")
+userWarehouse = config.get("SQL", "user")
+passwordWarehouse = config.get("SQL", "password")
 
 # Liste des fichiers CSV dans le dossier spécifié
-fichiers_csv = [f for f in os.listdir(dossier_csv) if f.endswith('.csv')]
+fichiers_csv = [f for f in os.listdir(warehouse_csv) if f.endswith('.csv')]
 
 # Connexion à la base de données PostgreSQL
 conSQL = psycopg2.connect(
-    host="localhost",
-    port="5432",
-    dbname="dataelec",
-    user="dataelec",
-    password="jL2wtvNMa6Ttkd"
+    host = hostWarehouse,
+    port = portWarehouse,
+    dbname = dbnameWarehouse,
+    user = userWarehouse,
+    password = passwordWarehouse
 )
 
 cur = conSQL.cursor()
@@ -31,7 +39,7 @@ def supprimer_table(nom_table):
 
 # Parcours des fichiers CSV
 for fichier_csv in fichiers_csv:
-    chemin_fichier_csv = os.path.join(dossier_csv, fichier_csv)
+    chemin_fichier_csv = os.path.join(warehouse_csv, fichier_csv)
 
     # Lecture du fichier CSV
     with open(chemin_fichier_csv, 'r') as file:
@@ -49,8 +57,8 @@ for fichier_csv in fichiers_csv:
             supprimer_table(nom_table)
 
         # Création de la table dans la base de données
-        liste_colonnes = [f"{colonne} {type_colonne}" for colonne, type_colonne in zip(entetes, types_colonnes)]
-        create_table_query = f"CREATE TABLE {nom_table} (id SERIAL PRIMARY KEY, {', '.join(liste_colonnes)})"
+        liste_colonnes = [f"{colonne.replace(' ', '_')} {type_colonne}" for colonne, type_colonne in zip(entetes, types_colonnes)]
+        create_table_query = f'CREATE TABLE {nom_table} ({", ".join(liste_colonnes)})'
         cur.execute(create_table_query)
         print(f"La nouvelle table {nom_table} a été créée.")
 

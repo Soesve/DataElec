@@ -1,3 +1,10 @@
 [Paths]
-chemin_entree = /Users/jeremy/Documents/1. Projets/Project DataElec/Datalake/
-chemin_sortie = /Users/jeremy/Documents/1. Projets/Project DataElec/Warehouse_CSV/
+chemin_entree = /usr/src/app/datalake/
+chemin_sortie = /usr/src/app/warehouse_csv/
+
+[SQL]
+host=warehouse_db
+port=5432
+dbname=dataelec
+user=dataelec
+password=jL2wtvNMa6Ttkd

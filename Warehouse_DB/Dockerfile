@@ -13,10 +13,3 @@ EXPOSE 5432
 ENV POSTGRES_USER dataelec
 ENV POSTGRES_PASSWORD jL2wtvNMa6Ttkd
 ENV POSTGRES_DB dataelec
-
-# Exécuter les commandes supplémentaires si nécessaire
-# Par exemple, pour installer des extensions PostgreSQL :
-# RUN apt-get update && apt-get install -y postgresql-contrib
-
-# CMD et ENTRYPOINT sont déjà configurés dans l'image de base (postgres)
-

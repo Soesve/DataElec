@@ -81,7 +81,7 @@ df_out_imports_exports = df_out_imports_exports.drop("Tranche horaire du program
 df_out_imports_exports.columns = ['Date', 'FR_vers_GB__MWh', 'GB_vers_FR__MWh', 'FR_vers_CWE__MWh', 'CWE_vers_FR__MWh', 'FR_vers_CH__MWh', 'CH_vers_FR__MWh', 'FR_vers_IT__MWh','IT_vers_FR__MWh', 'FR_vers_ES__MWh','ES_vers_FR__MWh', 'Export_France__MWh', 'Import_France__MWh']
 
 # Enregistrement du fichier dans Warehouse_CSV
-df_out_imports_exports.to_csv(chemin_sortie + 'exports_imports.csv', index=False)
+df_out_imports_exports.to_csv(chemin_sortie + 'imports_exports.csv', index=False)
 
 print("Traitement vers imports_exports.csv : OK")
 
