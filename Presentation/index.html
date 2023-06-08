@@ -40,7 +40,17 @@
 
                         <!-- Any section element inside of this container is displayed as a slide -->
                         <div class="slides">
-                                <section>
+								<section 	data-markdown="md/presentation.md"
+											data-separator="^\n\n\n"
+											data-separator-vertical="^\n\n"
+											data-separator-notes="^Note:"
+											data-charset="UTF-8">
+					   <!--
+						   Note that Windows uses `\r\n` instead of `\n` as its linefeed character.
+						   For a regex that supports all operating systems, use `\r?\n` instead of `\n`.
+					   -->
+				   				</section>
+								<section>
                                         <h1>Reveal.js</h1>
                                         <h3>The HTML Presentation Framework</h3>
                                         <p>
@@ -390,6 +400,7 @@ Reveal.addEventListener( 'customevent', function() {
                                 progress: true,
                                 history: true,
                                 center: true,
+								charset: 'UTF-8',
 
                                 transition: 'slide', // none/fade/slide/convex/concave/zoom
 
