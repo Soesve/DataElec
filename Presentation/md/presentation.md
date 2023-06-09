@@ -11,14 +11,6 @@
 
 
 
-![Gif Back to the future](media/back-to-the-future-this-is-it.gif)
-
-
-
-![Gif Back to the future](media/back-to-the-future-amazing.gif)
-
-
-
 ## Objectifs et <br/>organisation du projet
 - Objectifs du projet
 - Organisation du projet
@@ -54,7 +46,7 @@ Trello pour le suivi collaboratif des tâches
 
 
 ## Collecte des données<br/>(sources​, datalake)
-- Les sources
+- Sources
 - Import et stockage vers le datalake
 
 
@@ -77,8 +69,16 @@ Trello pour le suivi collaboratif des tâches
 
 
 ### Les sources
-Clarification des données à récupérer (sources, vocabulaire, type...)
+Sélection des données à récupérer (sources, vocabulaire, type, mises à jour...)
 ![Tableau des champs par source de données](media/tableau-sources-donnees.png)
+
+
+### Import et stockage vers le datalake
+On ne va pas se mentir, au tout début, on a tout importé en téléchargeant manuellement chaque fichier... mais ce n'était pas idéal pour partager le projet ou mettre à jour les fichiers de consommation, production, de température...
+
+
+![Gif Back to the future](media/back-to-the-future-this-is-it.gif)
+<br/>Puis vint Docker...
 
 
 ### Import et stockage vers le datalake
@@ -87,14 +87,13 @@ Depuis un script Python qui télécharge dans un dossier Datalake (utilisé en v
 
 
 
-![Gif Back to the future](media/back-to-the-future-ready.gif)
-
-
-
 ## Préparation des données<br/>(modélisation​, traitement)
 - Modélisation du warehouse
 - Traitement initial (V1)
 - Traitement optimisé (V2)
+
+
+![Gif Back to the future](media/back-to-the-future-ready.gif)
 
 
 ### Modélisation du warehouse
@@ -129,22 +128,33 @@ Problématiques rencontrées avec ce traitement :
 - Configuration de Talend assez lourde au regard du type de traitement nécessaire
 
 
+![Gif Back to the future](media/back-to-the-future-amazing.gif)
+<br/>Puis vint Docker...
+
+
 ### Traitement optimisé (V2)
 ❤️ Python + Docker + Github ❤️
 ![Schéma de l'architecture du traitement optimisé v2](media/schema-architecture-v02.jpg)
 
 
-## Traitement optimisé (V2)
+### Traitement optimisé (V2)
 Utilisation d'un fichier config.txt pour  y stocker les chemins des dossiers, les codes d'accès à la BDD...
-``` python
-import configparser
+![Import et jointure en python](media/code-configtxt.png)
 
-# Récupération des variables placées sur config.txt
-config = configparser.ConfigParser()
-config.read('/usr/src/app/scripts/config.txt')
-datalake = config.get('Paths', '/usr/src/app/datalake')
-warehouse_csv = config.get('Paths', '/usr/src/app/warehouse_csv')
-```
+
+### Traitement optimisé (V2)
+Utilisation d'un fichier config.txt pour  y stocker les chemins des dossiers, les codes d'accès à la BDD...
+![Import et jointure en python](media/code-import-configtxt.png)
+
+
+### Traitement optimisé (V2)
+L'exemple Talend #1 en Python
+![Import et jointure en python](media/code-talend-01-en-python.png)
+
+
+### Traitement optimisé (V2)
+L'exemple Talend #2 en Python
+![dépivotage en python](media/code-talend-02-en-python.png)
 
 
 
@@ -173,5 +183,5 @@ Le datalake dans un bucket Google Cloud
 
 
 
-![Gif Back to the future](media/back-to-the-future-the-end.gif)
+![Gif Back to the future](media/back-to-the-future-on-schedule.gif)
 ## Fin
