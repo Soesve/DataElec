@@ -5,8 +5,8 @@ import configparser
 
 # Récupération des variables placées sur config.txt
 config = configparser.ConfigParser()
-config.read('config.txt')
-warehouse_csv = config.get('Paths', 'chemin_sortie')
+config.read('/usr/src/app/scripts/config.txt')
+warehouse_csv = config.get('Paths', '/usr/src/app/warehouse_csv')
 hostWarehouse = config.get("SQL", "host")
 portWarehouse = config.get("SQL", "port")
 dbnameWarehouse = config.get("SQL", "dbname")
