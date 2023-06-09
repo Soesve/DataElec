@@ -1,39 +1,31 @@
-import os
 import requests
 import configparser
+import zipfile
+import os
 
 # Récupération des variables placées sur config.txt
 config = configparser.ConfigParser()
-config.read('config.txt')
+config.read('/usr/src/app/scripts/config.txt')
 datalake = config.get('Paths', 'chemin_entree')
 
-# URL du fichier à télécharger
-url = "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/consommation-quotidienne-brute-regionale/exports/csv?lang=fr&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B"
+# On parcourt les URLs du fichier config.txt
+for key in config['Downloads']:
+    url = config['Downloads'][key]
+    print(url)
+    response = requests.get(url)
+    
+    # On télécharge dans le datalake
+    with open(datalake + key, 'wb') as file:
+        file.write(response.content)
+    
+    if key == "ensemble.zip":
+        path_ensemble = datalake + key
+        files_to_extract = ["donnees_communes.csv", "donnees_departements.csv", "donnees_regions.csv"]
 
-# Nom du fichier téléchargé
-file_name = "consommation-quotidienne-brute-regionale.csv"
-
-# Vérification de la dernière version déjà téléchargée
-last_downloaded_file = os.path.join(datalake, file_name)
-last_modified = None
-
-if os.path.exists(last_downloaded_file):
-    last_modified = os.path.getmtime(last_downloaded_file)
-
-# Téléchargement du fichier
-response = requests.get(url)
-if response.status_code == 200:
-    remote_modified = response.headers.get('last-modified')
-    remote_modified_timestamp = None
-
-    if remote_modified:
-        remote_modified_timestamp = response.headers.get('last-modified')
-
-    if not last_modified or (remote_modified_timestamp and remote_modified_timestamp > last_modified):
-        with open(last_downloaded_file, 'wb') as file:
-            file.write(response.content)
-        print("Le fichier a été téléchargé avec succès.")
+        with zipfile.ZipFile(path_ensemble, "r") as zip_ref:
+            for file in files_to_extract:
+                zip_ref.extract(file, datalake)
+                print("Fichier :",file,"écrasé")
+        os.remove(path_ensemble)
     else:
-        print("La dernière version du fichier est déjà téléchargée.")
-else:
-    print("Échec du téléchargement du fichier.")
+        print("Fichier :",key,"écrasé")

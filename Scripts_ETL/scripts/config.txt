@@ -8,3 +8,12 @@ port=5432
 dbname=dataelec
 user=dataelec
 password=jL2wtvNMa6Ttkd
+
+[Downloads]
+ensemble.zip = https://www.insee.fr/fr/statistiques/fichier/6683035/ensemble.zip
+RP2019_LOGEMT_csv.zip = https://www.insee.fr/fr/statistiques/fichier/6544344/RP2019_LOGEMT_csv.zip
+conso-elec-gaz-annuelle-par-secteur-dactivite-agregee-commune.csv = https://opendata.agenceore.fr/api/explore/v2.1/catalog/datasets/conso-elec-gaz-annuelle-par-secteur-dactivite-agregee-commune/exports/csv?lang=fr&timezone=Europe%%2FBerlin&use_labels=true&delimiter=%%3B
+injections-regionales-quotidiennes-consolidees-rpt.csv = https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/injections-regionales-quotidiennes-consolidees-rpt/exports/csv?lang=fr&timezone=Europe%%2FParis&use_labels=true&delimiter=%%3B
+temperature-quotidienne-regionale.csv = https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/temperature-quotidienne-regionale/exports/csv?lang=fr&timezone=Europe%%2FBerlin&use_labels=true&delimiter=%%3B
+consommation-quotidienne-brute-regionale.csv = https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/consommation-quotidienne-brute-regionale/exports/csv?lang=fr&timezone=Europe%%2FBerlin&use_labels=true&delimiter=%%3B
+imports-exports-commerciaux.csv = https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/imports-exports-commerciaux/exports/csv?lang=fr&timezone=Europe%%2FBerlin&use_labels=true&delimiter=%%3B
