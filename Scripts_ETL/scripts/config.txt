@@ -1,6 +1,6 @@
 [Paths]
-chemin_entree = /usr/src/app/datalake/
-chemin_sortie = /usr/src/app/warehouse_csv/
+datalake = /usr/src/app/datalake/
+warehouse_csv = /usr/src/app/warehouse_csv/
 
 [SQL]
 host=warehouse_db
