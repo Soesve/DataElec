@@ -5,13 +5,9 @@
 ## Sommaire
 - Objectifs et organisation du projet
 - Collecte des données (sources​, datalake)
-- Préparation des données : modélisation​ et traitement
+- Préparation des données (modélisation​, traitement)
 - Analyse​ : data visualisation​
 - Retours d'expériences
-
-
-
-![Gif Back to the future](media/back-to-the-future-ready.gif)
 
 
 
@@ -91,33 +87,50 @@ Depuis un script Python qui télécharge dans un dossier Datalake (utilisé en v
 
 
 
-## Préparation
+![Gif Back to the future](media/back-to-the-future-ready.gif)
+
+
+
+## Préparation des données<br/>(modélisation​, traitement)
 - Modélisation du warehouse
-- Schématisation et traitement V1
-- Schématisation et traitement V2
+- Traitement initial (V1)
+- Traitement optimisé (V2)
 
 
-### Modélisation
+### Modélisation du warehouse
 ![Modélisation du schéma de données attendu dans le warehouse](media/schema-donnees.png)
 
 
-### Traitement V1
-Schématisation
+### Traitement initial (V1)
+En utilisant Talend sur des dossiers locaux
 ![Schéma de l'architecture des traitements de données](media/schema-architecture-v01.jpg)
 
 
-### Traitement V1
-Avec Talend (exemple 1)
-![Exemple de job sur Talend 01](media/capture-talend-01.png)
+### Traitement initial (V1)
+Exemple #1 d'un job Talend (jointure)
+![Exemple de job sur Talend 01](media/capture-talend-02.png)
 
 
-### Traitement V1
-Avec Talend (exemple 2)
-![Exemple de job sur Talend 02](media/capture-talend-02.png)
+### Traitement initial (V1)
+Exemple #2 d'un job Talend (dépivoter)
+![Exemple de job sur Talend 02](media/capture-talend-01.png)
 
 
-### Traitement V1
+### Traitement initial (V1)
 Résultat dans MySQL Workbench
+![BDD dans MySqL Workbench](media/capture-mysql-workbench.png)
+
+
+### Traitement initial (V1) 
+Problématiques rencontrées avec ce traitement : 
+- Partage et collaboration difficile : 
+    - Export/import de jobs Talend
+    - Pas d'utilisation de Github
+- Configuration de Talend assez lourde au regard du type de traitement nécessaire
+
+
+### Traitement optimisé (V2)
+Docker lover
 ![BDD dans MySqL Workbench](media/capture-mysql-workbench.png)
 
 
