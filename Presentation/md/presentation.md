@@ -130,8 +130,21 @@ Problématiques rencontrées avec ce traitement :
 
 
 ### Traitement optimisé (V2)
-Docker lover
+❤️ Python + Docker + Github ❤️
 ![Schéma de l'architecture du traitement optimisé v2](media/schema-architecture-v02.jpg)
+
+
+## Traitement optimisé (V2)
+Utilisation d'un fichier config.txt pour  y stocker les chemins des dossiers, les codes d'accès à la BDD...
+``` python
+import configparser
+
+# Récupération des variables placées sur config.txt
+config = configparser.ConfigParser()
+config.read('/usr/src/app/scripts/config.txt')
+datalake = config.get('Paths', '/usr/src/app/datalake')
+warehouse_csv = config.get('Paths', '/usr/src/app/warehouse_csv')
+```
 
 
 
