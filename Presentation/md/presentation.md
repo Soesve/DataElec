@@ -131,7 +131,7 @@ Problématiques rencontrées avec ce traitement :
 
 ### Traitement optimisé (V2)
 Docker lover
-![BDD dans MySqL Workbench](media/capture-mysql-workbench.png)
+![Schéma de l'architecture du traitement optimisé v2](media/schema-architecture-v02.jpg)
 
 
 
