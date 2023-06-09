@@ -1,9 +1,8 @@
 credentials/
 .DS_Store
-Datalake/*.xlsx
-Datalake/*.csv
-Datalake/*.zip
-Datalake/*.pdf
+Datalake/*
+!Datalake/calendrier-vacances.xlsx
+!Datalake/regions-zones-scolaires.csv
 Dataviz/
 
 # Byte-compiled / optimized / DLL files

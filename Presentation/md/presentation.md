@@ -7,7 +7,7 @@
 - Collecte des données (sources​, datalake)
 - Préparation des données (modélisation​, traitement)
 - Analyse​ : data visualisation​
-- Retours d'expériences
+- Pour aller plus loin
 
 
 
@@ -159,8 +159,8 @@ L'exemple Talend #2 en Python
 
 
 ## Data visualization
-- Import des données
-- Réalisation
+- Importation des données
+- Dataviz
 
 
 ### Importation des données
@@ -173,12 +173,120 @@ Dans PowerBI
 ![Schéma des données après importation dans PowerBI](media/capture-schema-donnees-powerbi.png)
 
 
+### Dataviz
+Première étape : faire un plan !
+![Plan dataviz](media/capture-plan-dataviz.png)
 
-## Retours d'expérience
+
+### Dataviz
+Dashboard - Qlik
+![Dataviz Qlik - Ecran 01](media/capture-qlik-ecran-01.png)
 
 
-### Stockage des données
-Le datalake dans un bucket Google Cloud
+### Dataviz
+Dashboard - PowerBI
+![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-01.png)
+
+
+### Dataviz
+Conso vs météo - Qlik
+![Dataviz Qlik - Ecran 02](media/capture-qlik-ecran-02.png)
+
+
+### Dataviz
+Conso vs météo - PowerBI
+![Dataviz PowerBI - Ecran 02](media/capture-powerbi-ecran-02.png)
+
+
+### Dataviz
+Conso vs jour de semaine - Qlik
+![Dataviz Qlik - Ecran 03](media/capture-qlik-ecran-03.png)
+
+
+### Dataviz
+Conso vs jour de semaine - PowerBI
+![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-03.png)
+
+
+### Dataviz
+Conso vs heure de la journée - Qlik
+![Dataviz Qlik - Ecran 04](media/capture-qlik-ecran-04.png)
+
+
+### Dataviz
+Conso vs heure de la journée - PowerBI
+![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-04.png)
+
+
+### Dataviz
+Conso vs type de client - Qlik
+![Dataviz Qlik - Ecran 05](media/capture-qlik-ecran-05.png)
+
+
+### Dataviz
+Conso vs type de client - PowerBI
+![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-05.png)
+
+
+### Dataviz
+Conso vs logements - Qlik
+![Dataviz Qlik - Ecran 06](media/capture-qlik-ecran-06.png)
+
+
+### Dataviz
+Conso vs logements - PowerBI
+![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-06.png)
+
+
+### Dataviz
+Production  - Qlik
+![Dataviz Qlik - Ecran 07](media/capture-qlik-ecran-07.png)
+
+
+### Dataviz
+Production - PowerBI
+![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-07.png)
+
+
+### Dataviz
+Imports/Exports - Qlik
+![Dataviz Qlik - Ecran 08](media/capture-qlik-ecran-08.png)
+
+
+### Dataviz
+Imports/Exports - PowerBI
+![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-08.png)
+
+
+
+## Pour aller plus loin
+- Retours d'expériences
+- Pistes d'optimisation
+
+
+### Retours d'expériences
+- Utiliser tout de suite Docker + Github = 🫶
+- Qlik vs PowerBI : 
+    - Importation des données : avantage à PowerBI pour la configuration des clés (et clés secondaires)
+    - Visuel cartes géographiques : avantage à Qlik pour la configuration du visuel
+    - Visuel histogrammes : avantage à Qlik pour le choix manuel de l'ordre des données
+    - Calcul de la corrélation : avantage à Qlik qui a une formule dédiée
+    - ...
+
+
+### Pour aller plus loin
+Optimisations : 
+- Conditionner le script d'import à la date de dernière mise à jour du fichier en ligne vs celui en local
+- Utiliser le cloud (voir diapos suivantes)
+
+
+### Pour aller plus loin
+Utiliser Google Cloud : Stocker le datalake dans un bucket
+![Datalake dans un bucket Google Cloud](media/capture-bucket-datalake.png)
+
+
+### Pour aller plus loin
+Utiliser Google Cloud : Faire le traitement via DataProc et BigQuery
 ![Datalake dans un bucket Google Cloud](media/capture-bucket-datalake.png)
 
 
