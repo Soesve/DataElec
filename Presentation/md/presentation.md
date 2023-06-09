@@ -3,12 +3,11 @@
 
 
 ## Sommaire
-- Objectifs du projet
-- Organisation
-- Collecte : les sources​ et leur stockage
-- Préparation : modélisation​ et traitement
-- Analyse​ : visualisation​
-- Optimisation
+- Objectifs et organisation du projet
+- Collecte des données (sources​, datalake)
+- Préparation des données : modélisation​ et traitement
+- Analyse​ : data visualisation​
+- Retours d'expériences
 
 
 
@@ -16,52 +15,57 @@
 
 
 
-## Objectifs du projet
-
-
-## Objectifs du projet
-- Comprendre la consommation électrique en France : par type de clients, par région, par période (saisons, jours de semaine…)​
-
-
-## Objectifs du projet
-- Comprendre la consommation électrique en France : par type de clients, par région, par période (saisons, jours de semaine…)​
-- Pour identifier les éléments qui influencent la consommation : météo, jours de semaine… (exemple : coefficient de sensibilité météo par région ou zone géographique plus petite pour identifier les priorités en terme d’isolation des bâtiments)
+![Gif Back to the future](media/back-to-the-future-this-is-it.gif)
 
 
 
-## Organisation
-- Microsoft Teams (et OneDrive)
-- Trello
-- Github
+![Gif Back to the future](media/back-to-the-future-amazing.gif)
 
 
-### Github (évidemment)
+
+## Objectifs et <br/>organisation du projet
+- Objectifs du projet
+- Organisation du projet
+
+
+### Objectifs du projet
+- Analyser la consommation électrique en France pour identifier les éléments qui l'influencent : température, type de clients, région, saisonnalité (jours de semaine, vacances)...
+- Cette étude permettrait de guider des choix politiques : 
+    - Prévision de consommation électrique et ajustement de la production
+    - Identification de zones géographiques particulièrement sensibles aux variations de température (prioriser l'investissement sur l'isolation thermique des bâtiments)
+    - ...
+
+
+### Organisation du projet
+Github + Docker = ❤️
 ![Github](media/capture-github.png)
 
 
-### Microsoft Teams
-Pour les échanges
+### Organisation du projet
+Microsoft Teams pour les échanges...
 ![Teams pour échanger](media/capture-teams-publications.png)
 
 
-Et les partages de fichiers (hors github)
+### Organisation du projet
+... et les partages de fichiers (hors github)
 ![Teams pour le partage de fichiers](media/capture-teams-fichiers.png)
 
 
-### Trello pour le suivi collaboratif des tâches
+### Organisation du projet 
+Trello pour le suivi collaboratif des tâches
 ![Trello](media/capture-trello.png)
 
 
 
-## Collecte
+## Collecte des données<br/>(sources​, datalake)
 - Les sources
-- Import et stockage des données
+- Import et stockage vers le datalake
 
 
 ### Les sources
 - Open Data Réseau Energies https://odre.opendatasoft.com/​
     - Réseaux Énergies réunit plusieurs acteurs de l'énergies (GRTgaz, RTE, Teréga...) dans une démarche de transparence et de pédagogie à l’égard des citoyens, des collectivités territoriales et des acteurs économiques...​
-    - Données utilisées : Consommation, production par région, quotidien...​
+    - Données utilisées : Consommation et production par région, quotidien, annuel par type de client ou filière de production...​
 
 
 ### Les sources
@@ -77,17 +81,13 @@ Et les partages de fichiers (hors github)
 
 
 ### Les sources
+Clarification des données à récupérer (sources, vocabulaire, type...)
 ![Tableau des champs par source de données](media/tableau-sources-donnees.png)
 
 
-### Stockage des données
-Le datalake dans un dossier local
-![Datalake dans un dossier local](media/capture-dossier-datalake.png)
-
-
-### Stockage des données
-Le datalake dans un bucket Google Cloud
-![Datalake dans un bucket Google Cloud](media/capture-bucket-datalake.png)
+### Import et stockage vers le datalake
+Depuis un script Python qui télécharge dans un dossier Datalake (utilisé en volume docker)
+![Datalake dans un dossier local](media/capture-flux-datalake.jpg)
 
 
 
@@ -103,7 +103,7 @@ Le datalake dans un bucket Google Cloud
 
 ### Traitement V1
 Schématisation
-![Schéma de l'architecture des traitements de données](media/schema-architecture-v01.png)
+![Schéma de l'architecture des traitements de données](media/schema-architecture-v01.jpg)
 
 
 ### Traitement V1
@@ -135,6 +135,15 @@ Dans Qlik
 ### Importation des données
 Dans PowerBI
 ![Schéma des données après importation dans PowerBI](media/capture-schema-donnees-powerbi.png)
+
+
+
+## Retours d'expérience
+
+
+### Stockage des données
+Le datalake dans un bucket Google Cloud
+![Datalake dans un bucket Google Cloud](media/capture-bucket-datalake.png)
 
 
 
