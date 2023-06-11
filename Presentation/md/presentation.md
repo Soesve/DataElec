@@ -164,13 +164,8 @@ L'exemple Talend #2 en Python
 
 
 ### Importation des données
-Dans Qlik
-![Schéma des données après importation dans Qlik](media/capture-schema-donnees-qlik.png)
-
-
-### Importation des données
-Dans PowerBI
-![Schéma des données après importation dans PowerBI](media/capture-schema-donnees-powerbi.png)
+Dans Qlik et PowerBI
+![Schéma des données après importation dans Qlik](media/capture-schema-donnees-dataviz.png)
 
 
 ### Dataviz
@@ -179,83 +174,43 @@ Première étape : faire un plan !
 
 
 ### Dataviz
-Dashboard - Qlik
-![Dataviz Qlik - Ecran 01](media/capture-qlik-ecran-01.png)
+Dashboard
+![Dataviz - Ecran 01](media/capture-dataviz-01.png)
 
 
 ### Dataviz
-Dashboard - PowerBI
-![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-01.png)
+Conso vs température
+![Dataviz - Ecran 02](media/capture-dataviz-02.png)
 
 
 ### Dataviz
-Conso vs météo - Qlik
-![Dataviz Qlik - Ecran 02](media/capture-qlik-ecran-02.png)
+Conso vs jour de semaine et vacances
+![Dataviz - Ecran 03](media/capture-dataviz-03.png)
 
 
 ### Dataviz
-Conso vs météo - PowerBI
-![Dataviz PowerBI - Ecran 02](media/capture-powerbi-ecran-02.png)
+Conso vs heure de la journée
+![Dataviz - Ecran 04](media/capture-dataviz-04.png)
 
 
 ### Dataviz
-Conso vs jour de semaine - Qlik
-![Dataviz Qlik - Ecran 03](media/capture-qlik-ecran-03.png)
+Conso vs type de client
+![Dataviz - Ecran 05](media/capture-dataviz-05.png)
 
 
 ### Dataviz
-Conso vs jour de semaine - PowerBI
-![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-03.png)
+Conso vs logements
+![Dataviz - Ecran 06](media/capture-dataviz-06.png)
 
 
 ### Dataviz
-Conso vs heure de la journée - Qlik
-![Dataviz Qlik - Ecran 04](media/capture-qlik-ecran-04.png)
-
-
-### Dataviz
-Conso vs heure de la journée - PowerBI
-![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-04.png)
-
-
-### Dataviz
-Conso vs type de client - Qlik
-![Dataviz Qlik - Ecran 05](media/capture-qlik-ecran-05.png)
-
-
-### Dataviz
-Conso vs type de client - PowerBI
-![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-05.png)
-
-
-### Dataviz
-Conso vs logements - Qlik
-![Dataviz Qlik - Ecran 06](media/capture-qlik-ecran-06.png)
-
-
-### Dataviz
-Conso vs logements - PowerBI
-![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-06.png)
-
-
-### Dataviz
-Production  - Qlik
-![Dataviz Qlik - Ecran 07](media/capture-qlik-ecran-07.png)
-
-
-### Dataviz
-Production - PowerBI
-![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-07.png)
+Production (injection)
+![Dataviz - Ecran 07](media/capture-dataviz-07.png)
 
 
 ### Dataviz
 Imports/Exports - Qlik
-![Dataviz Qlik - Ecran 08](media/capture-qlik-ecran-08.png)
-
-
-### Dataviz
-Imports/Exports - PowerBI
-![Dataviz PowerBI - Ecran 01](media/capture-powerbi-ecran-08.png)
+![Dataviz - Ecran 08](media/capture-dataviz-08.png)
 
 
 
@@ -266,6 +221,8 @@ Imports/Exports - PowerBI
 
 ### Retours d'expériences
 - Utiliser tout de suite Docker + Github = 🫶
+- L'OpenData a ses limites (secret statistique)
+- Définir dès le début du projet les visuels souhaités : en fonction des outils de Dataviz, cela a un impact sur la forme des données à privilégier dans le warehouse
 - Qlik vs PowerBI : 
     - Importation des données : avantage à PowerBI pour la configuration des clés (et clés secondaires)
     - Visuel cartes géographiques : avantage à Qlik pour la configuration du visuel
